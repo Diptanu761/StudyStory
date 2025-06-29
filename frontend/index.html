@@ -303,7 +303,7 @@
     contentEl.textContent = 'Generating story...';
 
     try {
-      const res = await fetch('http://localhost:5000/generate', {
+      const res = await fetch('https://studystory.onrender.com/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ topic, genre })
