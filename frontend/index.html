@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StudyStory</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background-image: url('assets/bgp.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+    }
+
+    .inner-outer-shadow {
+      box-shadow:
+        inset 0 4px 8px rgba(0, 0, 0, 0.2),
+        0 8px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .custom-scroll::-webkit-scrollbar {
+      width: 7px;
+    }
+
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background-color: #aaa;
+      border-radius: 3px;
+      min-height: 100px;
+    }
+  </style>
+</head>
+
+<body class="flex justify-center items-center h-screen">
+
+  <div
+    class="bg-[#ffdf93] rounded-[55px] pt-2 pb-20 px-20 inner-outer-shadow max-w-xl min-h-[720px] w-full text-center">
+    <h1 class="text-[65px] font-bold text-[#474747] drop-shadow-[1px_1px_1px_#fff] mb-1 "
+      style="font-family: 'Fredoka', sans-serif;">StudyStory</h1>
+    <p class="text-2xl font-bold text-[#474747] drop-shadow-[1px_1px_1px_#fff] mb-7"
+      style="font-family: 'Fredoka', sans-serif;">Turn study topics into magical stories</p>
+
+    <div class="w-[300px] flex flex-col items-center mx-auto">
+      <input id="topicInput" type="text" placeholder="Enter a topic (e.g. Photosynthesis)"
+        class="w-full p-4 mb-3 rounded-[17px] border border-gray-300 focus:outline-none" />
+
+      <div
+        class="w-full bg-white border-t border-l border-r border-b border-gray-300 rounded-t-md py-2 px-4 text-left shadow-[0_4px_25px_rgba(0,0,0,0.15)] z-10 relative">
+        <span class="font-medium text-xl text-[#242323]" style="font-family: 'Barlow Condensed', sans-serif;">CHOOSE THE
+          GENRE </span>
+      </div>
+
+      <div
+        class="border items-center border-t-0 justify-center w-full border-gray-300 rounded-none bg-white text-left max-h-60 overflow-y-auto custom-scroll z-0 relative">
+        <div data-genre="Science Fiction" onclick="selectGenre(this)"
+          class="relative flex items-center px-4 py-4 cursor-pointer hover:bg-gray-100">
+          <img src="assets/scifi.png" alt="Science Fiction Icon" class="w-8 h-8 mr-4" />
+          <div>
+            <div class="font-medium text-xl text-[#242323]" style="font-family: 'Barlow Condensed', sans-serif;">Science
+              Fiction</div>
+            <div class="text-sm text-[#6f757a]" style="font-family: 'Barlow Condensed', sans-serif;">Futuristic &
+              imaginative</div>
+          </div>
+          <button
+            class="remove-genre absolute right-4 top-1/2 transform -translate-y-1/2 text-lg font-bold text-gray-400 hover:text-[#428bca] hidden transition-colors duration-300"
+            onclick="removeGenre(event)">
+            ×
+          </button>
+        </div>
+        <div data-genre="Fantasy" onclick="selectGenre(this)"
+          class="relative flex items-center px-4 py-4 cursor-pointer hover:bg-gray-100">
+          <img src="assets/spell-book.png" alt="Fantasy Icon" class="w-8 h-8 mr-4" />
+          <div>
+            <div class="font-medium text-xl text-[#242323]" style="font-family: 'Barlow Condensed', sans-serif;">Fantasy
+            </div>
+            <div class="text-sm text-[#6f757a]" style="font-family: 'Barlow Condensed', sans-serif;">Magic, myths, and
+              more</div>
+          </div>
+          <button
+            class="remove-genre absolute right-4 top-1/2 transform -translate-y-1/2 text-lg font-bold text-gray-400 hover:text-[#428bca] hidden transition-colors duration-300"
+            onclick="removeGenre(event)">
+            ×
+          </button>
+        </div>
+        <div data-genre="Detective" onclick="selectGenre(this)"
+          class="relative flex items-center px-4 py-4 cursor-pointer hover:bg-gray-100">
+          <img src="assets/detective.png" alt="Detective Icon" class="w-8 h-8 mr-4" />
+          <div>
+            <div class="font-medium text-xl text-[#242323]" style="font-family: 'Barlow Condensed', sans-serif;">
+              Detective</div>
+            <div class="text-sm text-[#6f757a]" style="font-family: 'Barlow Condensed', sans-serif;">Mysteries & clues
+            </div>
+          </div>
+          <button
+            class="remove-genre absolute right-4 top-1/2 transform -translate-y-1/2 text-lg font-bold text-gray-400 hover:text-[#428bca] hidden transition-colors duration-300"
+            onclick="removeGenre(event)">
+            ×
+          </button>
+        </div>
+        <div data-genre="Adventure" onclick="selectGenre(this)"
+          class="relative flex items-center px-4 py-4 cursor-pointer hover:bg-gray-100">
+          <img src="assets/adventure.png" alt="Adventure Icon" class="w-8 h-8 mr-4" />
+          <div>
+            <div class="font-medium text-xl text-[#242323]" style="font-family: 'Barlow Condensed', sans-serif;">
+              Adventure</div>
+            <div class="text-sm text-[#6f757a]" style="font-family: 'Barlow Condensed', sans-serif;">Thrills &
+              exploration</div>
+          </div>
+          <button
+            class="remove-genre absolute right-4 top-1/2 transform -translate-y-1/2 text-lg font-bold text-gray-400 hover:text-[#428bca] hidden transition-colors duration-300"
+            onclick="removeGenre(event)">
+            ×
+          </button>
+        </div>
+        <div data-genre="Historical" onclick="selectGenre(this)"
+          class="relative flex items-center px-4 py-4 cursor-pointer hover:bg-gray-100">
+          <img src="assets/history.png" alt="Historical Icon" class="w-8 h-8 mr-4" />
+          <div>
+            <div class="font-medium text-xl text-[#242323]" style="font-family: 'Barlow Condensed', sans-serif;">
+              Historical</div>
+            <div class="text-sm text-[#6f757a]" style="font-family: 'Barlow Condensed', sans-serif;">Past comes alive
+            </div>
+          </div>
+          <button
+            class="remove-genre absolute right-4 top-1/2 transform -translate-y-1/2 text-lg font-bold text-gray-400 hover:text-[#428bca] hidden transition-colors duration-300"
+            onclick="removeGenre(event)">
+            ×
+          </button>
+        </div>
+        <div data-genre="Mythology" onclick="selectGenre(this)"
+          class="relative flex items-center px-4 py-4 cursor-pointer hover:bg-gray-100">
+          <img src="assets/mythology.png" alt="Mythology Icon" class="w-8 h-8 mr-4" />
+          <div>
+            <div class="font-medium text-xl text-[#242323]" style="font-family: 'Barlow Condensed', sans-serif;">
+              Mythology</div>
+            <div class="text-sm text-[#6f757a]" style="font-family: 'Barlow Condensed', sans-serif;">Gods, legends, and
+              ancient tales
+            </div>
+          </div>
+          <button
+            class="remove-genre absolute right-4 top-1/2 transform -translate-y-1/2 text-lg font-bold text-gray-400 hover:text-[#428bca] hidden transition-colors duration-300"
+            onclick="removeGenre(event)">
+            ×
+          </button>
+        </div>
+        <div data-genre="Comedy" onclick="selectGenre(this)"
+          class="relative flex items-center px-4 py-4 cursor-pointer hover:bg-gray-100">
+          <img src="assets/comedy.png" alt="Comedy Icon" class="w-8 h-8 mr-4" />
+          <div>
+            <div class="font-medium text-xl text-[#242323]" style="font-family: 'Barlow Condensed', sans-serif;">
+              Comedy</div>
+            <div class="text-sm text-[#6f757a]" style="font-family: 'Barlow Condensed', sans-serif;">Funny, and playful
+              stories
+            </div>
+          </div>
+          <button
+            class="remove-genre absolute right-4 top-1/2 transform -translate-y-1/2 text-lg font-bold text-gray-400 hover:text-[#428bca] hidden transition-colors duration-300"
+            onclick="removeGenre(event)">
+            ×
+          </button>
+        </div>
+        <div data-genre="Horror" onclick="selectGenre(this)"
+          class="relative flex items-center px-4 py-4 cursor-pointer hover:bg-gray-100">
+          <img src="assets/horror.png" alt="Horror Icon" class="w-8 h-8 mr-4" />
+          <div>
+            <div class="font-medium text-xl text-[#242323]" style="font-family: 'Barlow Condensed', sans-serif;">
+              Horror</div>
+            <div class="text-sm text-[#6f757a]" style="font-family: 'Barlow Condensed', sans-serif;">Spooky and
+              thrilling
+            </div>
+          </div>
+          <button
+            class="remove-genre absolute right-4 top-1/2 transform -translate-y-1/2 text-lg font-bold text-gray-400 hover:text-[#428bca] hidden transition-colors duration-300"
+            onclick="removeGenre(event)">
+            ×
+          </button>
+        </div>
+      </div>
+
+      <button id="submitBtn"
+        class="w-full py-4 text-lg text-white font-bold transition-colors duration-300 rounded-b-md shadow-[0_-4px_10px_rgba(0,0,0,0.15)] z-10 relative"
+        style="background-color: #86a8b6;">
+        SUBMIT
+      </button>
+      <div id="messageBox" class="text-sm mt-3 font-medium transition-opacity duration-500 opacity-0"
+        style="font-family: 'Fredoka', sans-serif;"></div>
+    </div>
+  </div>
+
+  <div id="storyPopup" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 hidden">
+    <div class="bg-white rounded-[25px] max-w-2xl w-[90%] p-8 shadow-lg text-left relative">
+      <button onclick="closeStoryPopup()"
+        class="absolute top-4 right-4 text-gray-500 hover:text-red-500 text-2xl font-bold">&times;</button>
+
+      <h2 id="storyTitle" class="text-3xl font-bold text-[#1a1a2e] mb-4" style="font-family: 'Fredoka', sans-serif;">
+        Story Title</h2>
+
+      <div id="storyContent" class="text-lg text-[#333] space-y-4 leading-relaxed mb-6 overflow-y-auto custom-scroll"
+        style="font-family: 'Barlow Condensed', sans-serif; max-height: 500px; padding-right: 8px;">
+      </div>
+
+      <p id="aiLabel" class="text-sm text-gray-500 text-right" style="font-family: 'Fredoka', sans-serif;">Story
+        generated by <span class="text-[#0866ff] font-semibold">HackClub AI</span></p>
+    </div>
+  </div>
+</body>
+
+<script>
+  let selectedGenreElement = null;
+
+  function selectGenre(el) {
+    if (selectedGenreElement) {
+      selectedGenreElement.classList.remove('bg-gray-100');
+      selectedGenreElement.querySelector('.remove-genre').classList.add('hidden');
+    }
+
+    el.classList.add('bg-gray-100');
+    el.querySelector('.remove-genre').classList.remove('hidden');
+    selectedGenreElement = el;
+
+    document.getElementById('submitBtn').style.backgroundColor = '#428bca';
+  }
+
+  function removeGenre(event) {
+    event.stopPropagation();
+
+    if (selectedGenreElement) {
+      selectedGenreElement.classList.remove('bg-gray-100');
+      selectedGenreElement.querySelector('.remove-genre').classList.add('hidden');
+      selectedGenreElement = null;
+    }
+
+    document.getElementById('submitBtn').style.backgroundColor = '#86a8b6';
+  }
+
+  document.getElementById("submitBtn").addEventListener("click", handleSubmit);
+
+  function handleSubmit() {
+    const topic = document.getElementById("topicInput").value.trim();
+    const messageBox = document.getElementById("messageBox");
+
+    if (!topic && !selectedGenreElement) {
+      showMessage("❌ Please select Topic and genre.", "#dc2626");
+      return; 
+    }
+
+    if (!topic) {
+      showMessage("⚠️ Please give a topic.", "#f59e0b");
+      return;
+    }
+
+    if (!selectedGenreElement) {
+      showMessage("⚠️ Please select a genre.", "#f59e0b");
+      return;
+    }
+
+    showMessage("✅ Request Submitted. Generating story...", "#16a34a");
+
+    const genre = selectedGenreElement.getAttribute("data-genre");
+    generateStory(topic, genre);
+  }
+
+  function showMessage(text, color) {
+    const box = document.getElementById("messageBox");
+    box.innerText = text;
+    box.style.color = color;
+
+    box.classList.remove("opacity-0");
+    box.classList.add("opacity-100");
+
+    if (!text.includes("Generating story")) {
+      setTimeout(() => {
+        box.classList.remove("opacity-100");
+        box.classList.add("opacity-0");
+      }, 3000);
+    }
+  }
+
+  function closeStoryPopup() {
+    document.getElementById('storyPopup').classList.add('hidden');
+    document.getElementById('storyContent').innerHTML = '';
+    document.getElementById('storyTitle').textContent = '';
+
+    const messageBox = document.getElementById('messageBox');
+    setTimeout(() => {
+      messageBox.classList.remove("opacity-100");
+      messageBox.classList.add("opacity-0");
+    }, 3000);
+  }
+
+  async function generateStory(topic, genre) {
+    const popup = document.getElementById('storyPopup');
+    const titleEl = document.getElementById('storyTitle');
+    const contentEl = document.getElementById('storyContent');
+
+    popup.classList.remove('hidden');
+    titleEl.textContent = '';
+    contentEl.textContent = 'Generating story...';
+
+    try {
+      const res = await fetch('http://localhost:5000/generate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ topic, genre })
+      });
+
+      const data = await res.json();
+      if (!data.title || !data.story) throw new Error('Invalid story');
+
+      const dataTitle = data.title.replace(/\*\*/g, '');
+      const dataStory = data.story.replace(/\*\*/g, '');
+
+      titleEl.textContent = data.title;
+
+      contentEl.textContent = '';
+
+      typeStory(data.story);
+    } catch (e) {
+      contentEl.textContent = '⚠️ Could not generate story. Please try again.';
+    }
+  }
+
+  function typeStory(text, index = 0) {
+    const el = document.getElementById('storyContent');
+    if (index < text.length) {
+      el.innerHTML += text.charAt(index);
+      setTimeout(() => typeStory(text, index + 1), 18);
+    } else {
+      messageBox.innerText = "⚠️Story Completed";
+      messageBox.style.color = "#16a34a";
+      messageBox.classList.remove("opacity-0");
+      messageBox.classList.add("opacity-100");
+    }
+  }
+
+</script>
+</body>
+
+</html>
