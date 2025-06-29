@@ -45,9 +45,9 @@ Welcome to **StudyStory**, a unique web app that transforms boring study topics 
 
 ## 📸 Screenshots
 
-![Home Screen](assets/ss1.png)
-![Genre Selector](assets/ss2.png)
-![Popup Story](assets/ss3.png)
+![Home Screen](assets/pic1.png)
+![Genre Selector](assets/pic2.png)
+![Popup Story](assets/pic3.png)
 
 ---
 
