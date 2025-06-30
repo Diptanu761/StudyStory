@@ -30,7 +30,6 @@ Welcome to **StudyStory**, a unique web app that transforms boring study topics 
 - **Backend**: Node.js + Express (deployed on Render)
 - **Hosting**: Vercel (Frontend) + Render (API)
 - **AI API**: HackClub AI
-- **TTS**: Microsoft Azure Speech (Free Tier – 5M characters/mo)
 
 ---
 
